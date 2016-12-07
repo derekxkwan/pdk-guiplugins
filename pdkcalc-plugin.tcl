@@ -21,8 +21,9 @@ namespace eval ::pdkcalc:: {
 	if {$pdkcalcentry eq ""} {return} ;# no need to do anything if empty
 	if {[catch {expr $pdkcalcentry} errorname]} {
 	    global errorInfo
-            ::pdwindow::error "pdkcalc: improper input!"
+            ::pdwindow::error "pdkcalc: improper input!\n"
 	} else {
+            ::pdwindow::post "pdkcalc: "
             ::pdwindow::post [expr $pdkcalcentry]
             ::pdwindow::post "\n"
         }
