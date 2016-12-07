@@ -81,20 +81,17 @@ namespace eval ::pdkcalc:: {
     $mymenu add check -label [_ "pdkcalc prompt"] -variable ::pdkcalc::show \
         -command {::pdkcalc::toggle $::pdkcalc::show}
 
-# bind all <$::modifier-Key-s> {::deken::open_helpbrowser .helpbrowser2}
 
     ::pdkcalc::create
 
 
-} else {
     puts "built-in pdkcalc"
 
     proc ::pdkcalc::create {} {}
     proc ::pdkcalc::destroy {} {
 	# actually we *can* destroy it, but we cannot re-create it
-	::pdwindow::error "cannot destroy built-in pdkcalc"
+	::pdwindow::error "cannot destroy built-in pdkcalc\n"
     }
-}
 
 proc ::pdkcalc::toggle {state} {
     if { $state } { ::pdkcalc::create } { ::pdkcalc::destroy }
